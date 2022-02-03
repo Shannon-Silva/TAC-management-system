@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="114e1acc-d84f-47a8-ab7c-a09a1aa7c4bb">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     assets.`assetNo` AS assets_assetNo,
+     assets.`vendName` AS assets_vendName,
+     assets.`price` AS assets_price,
+     assets.`purchDate` AS assets_purchDate,
+     assets.`descript` AS assets_descript,
+     assets.`model` AS assets_model,
+     assets.`category` AS assets_category,
+     assets.`location` AS assets_location,
+     assets.`status` AS assets_status,
+     depreciation.`rate` AS depreciation_rate,
+     depreciation.`amount` AS depreciation_amount,
+     depreciation.`deprcLife` AS depreciation_deprcLife,
+     depreciation.`totalDeprc` AS depreciation_totalDeprc,
+     maintain.`mperiod` AS maintain_mperiod,
+     maintain.`mtimeUnit` AS maintain_mtimeUnit,
+     maintain.`lstMaint` AS maintain_lstMaint,
+     maintain.`wPeriod` AS maintain_wPeriod,
+     maintain.`wtimeUnit` AS maintain_wtimeUnit,
+     vendor.`name` AS vendor_name,
+     vendor.`address` AS vendor_address,
+     vendor.`contactNo` AS vendor_contactNo
+FROM
+     `depreciation` depreciation INNER JOIN `assets` assets ON depreciation.`assetNo` = assets.`assetNo`
+     INNER JOIN `maintain` maintain ON assets.`assetNo` = maintain.`assetNo`
+     INNER JOIN `vendor` vendor ON assets.`vendName` = vendor.`name`
+
+ORDER BY assets.assetNo]]>
+	</queryString>
+	<field name="assets_assetNo" class="java.lang.String"/>
+	<field name="assets_vendName" class="java.lang.String"/>
+	<field name="assets_price" class="java.lang.Double"/>
+	<field name="assets_purchDate" class="java.sql.Date"/>
+	<field name="assets_descript" class="java.lang.String"/>
+	<field name="assets_model" class="java.lang.String"/>
+	<field name="assets_category" class="java.lang.String"/>
+	<field name="assets_location" class="java.lang.String"/>
+	<field name="assets_status" class="java.lang.String"/>
+	<field name="depreciation_rate" class="java.lang.Double"/>
+	<field name="depreciation_amount" class="java.lang.Double"/>
+	<field name="depreciation_deprcLife" class="java.lang.Double"/>
+	<field name="depreciation_totalDeprc" class="java.lang.Double"/>
+	<field name="maintain_mperiod" class="java.lang.Integer"/>
+	<field name="maintain_mtimeUnit" class="java.lang.String"/>
+	<field name="maintain_lstMaint" class="java.sql.Date"/>
+	<field name="maintain_wPeriod" class="java.lang.Integer"/>
+	<field name="maintain_wtimeUnit" class="java.lang.String"/>
+	<field name="vendor_name" class="java.lang.String"/>
+	<field name="vendor_address" class="java.lang.String"/>
+	<field name="vendor_contactNo" class="java.lang.String"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="20806f83-ec07-41de-b2f7-4340e361a3e6"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="a21d3040-0267-4ab1-a461-439afd239b7a"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TITLE]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="b4641cb1-375e-4e45-90f5-448704cfcfe0"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Add a description here]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="6"/>
+	</pageHeader>
+	<columnHeader>
+		<band/>
+	</columnHeader>
+	<detail>
+		<band height="205">
+			<textField>
+				<reportElement x="90" y="6" width="100" height="20" uuid="e36cc55a-33d3-42f5-bae6-e1a435ab5e98"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{assets_assetNo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="30" y="6" width="60" height="20" uuid="a551fbe0-6c8d-4786-be84-79a25531a904"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Asset No :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="26" width="100" height="20" uuid="2e18f636-fb0b-4906-849b-6bbbd8f7acfb"/>
+				<textFieldExpression><![CDATA[$F{assets_descript}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="29" y="26" width="60" height="20" uuid="985a9fdd-e7aa-4aeb-adba-f20de5b65cc9"/>
+				<text><![CDATA[Description :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="46" width="100" height="20" uuid="24ab2f82-7987-4d09-aec2-bae995e9260f"/>
+				<textFieldExpression><![CDATA[$F{assets_model}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="46" width="34" height="20" uuid="f4834da4-3d57-45b4-8091-916bdc174531"/>
+				<text><![CDATA[Model : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="66" width="100" height="20" uuid="6e268a98-ad63-4eca-91b0-338bcdbd34d4"/>
+				<textFieldExpression><![CDATA[$F{assets_price}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="55" y="66" width="34" height="20" uuid="7b727fac-e4d3-41d2-a68f-f4305f83750f"/>
+				<text><![CDATA[Price  : ]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="89" y="86" width="100" height="20" uuid="cb68f22a-c561-419c-8756-121a0bdd366a"/>
+				<textFieldExpression><![CDATA[$F{assets_purchDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="15" y="86" width="74" height="20" uuid="11b2e494-8e2d-4ee7-990c-59264723e2a8"/>
+				<text><![CDATA[Purchase Date : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="126" width="100" height="20" uuid="b876cb20-f52e-476e-a6fb-e7169cea1f2a"/>
+				<textFieldExpression><![CDATA[$F{assets_category}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="38" y="126" width="51" height="20" uuid="d67af7cd-1cea-4d57-9ab8-6ce1a23dbea8"/>
+				<text><![CDATA[Cetegory  : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="146" width="100" height="20" uuid="da548de7-04b8-42ae-8650-23a7d64dca04"/>
+				<textFieldExpression><![CDATA[$F{assets_location}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="23" y="146" width="66" height="20" uuid="65bac4f6-9b55-4e14-bcee-24d192f50124"/>
+				<text><![CDATA[ Department  : ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="90" y="166" width="100" height="20" uuid="df127e92-876b-4b39-83b2-4a6ace85658c"/>
+				<textFieldExpression><![CDATA[$F{assets_status}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="51" y="166" width="38" height="20" uuid="dfa9a4b5-9705-471c-9192-65c2f4560771"/>
+				<text><![CDATA[Status :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="197" y="6" width="156" height="20" uuid="d7bb3964-e78e-4876-a233-36b03a01f0b9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Depreciation Details]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="28" width="68" height="20" uuid="3d307d30-be39-4ca1-b1c9-81dbd4f758bc"/>
+				<textFieldExpression><![CDATA[$F{depreciation_rate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="224" y="28" width="88" height="20" uuid="1616ea5f-c457-4da2-a74f-6e8c172b488b"/>
+				<text><![CDATA[Depreciation Rate :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="48" width="68" height="20" uuid="d7986fbd-6856-4726-826b-a77f69f36a9e"/>
+				<textFieldExpression><![CDATA[$F{depreciation_amount}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="212" y="48" width="100" height="20" uuid="257343b1-aead-421b-b7d4-e4d0a8e28103"/>
+				<text><![CDATA[Depreciation Amount :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="68" width="68" height="20" uuid="d90bb4c7-1e30-40ed-b9dd-8de65fc5d501"/>
+				<textFieldExpression><![CDATA[$F{depreciation_deprcLife}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="228" y="68" width="84" height="20" uuid="68f051dc-bd28-460b-9687-6e55e7f709c6"/>
+				<text><![CDATA[Depreciated Life  :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="312" y="88" width="68" height="20" uuid="491ae190-a1a8-4151-a540-688f5292956b"/>
+				<textFieldExpression><![CDATA[$F{depreciation_totalDeprc}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="223" y="88" width="89" height="20" uuid="9ad21d33-5bc7-4c2f-9d77-f8a3db2ecc30"/>
+				<text><![CDATA[Total Depreciation : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="381" y="6" width="152" height="20" uuid="62865807-8b35-41e2-830e-84f137d459bb"/>
+				<textElement textAlignment="Center">
+					<font size="14" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[Maintainance Details]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="89" y="106" width="100" height="20" uuid="3d0d6b89-a1b8-443d-9706-a2926349c772"/>
+				<textFieldExpression><![CDATA[$F{vendor_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="49" y="106" width="40" height="20" uuid="1243ff07-8946-4f30-844a-43722273bb7d"/>
+				<text><![CDATA[Vendor : ]]></text>
+			</staticText>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="481" y="26" width="73" height="20" uuid="1416e1a7-2f3e-4f4e-93d7-2939b3850d6c"/>
+				<textFieldExpression><![CDATA[$F{maintain_lstMaint}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="402" y="26" width="79" height="20" uuid="548d7462-7b10-463c-a07b-cc37fcfa5325"/>
+				<text><![CDATA[Last Maintained : ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="404" y="46" width="77" height="20" uuid="772ef064-29d3-46e2-9a6e-bf2756893a9f"/>
+				<text><![CDATA[Maintain Period :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="481" y="46" width="16" height="20" uuid="0918ff51-6c76-425d-a4dd-ad3bd39aa534"/>
+				<textFieldExpression><![CDATA[$F{maintain_mperiod}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="46" width="57" height="20" uuid="f375733a-63e0-46af-aade-c6b1f65439e3"/>
+				<textFieldExpression><![CDATA[$F{maintain_mtimeUnit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="497" y="66" width="57" height="20" uuid="5cc2a59b-9f49-4db7-a91c-84f098e8f5c9"/>
+				<textFieldExpression><![CDATA[$F{maintain_wtimeUnit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="482" y="66" width="15" height="20" uuid="46f9fa38-2765-4246-a248-fb93fed233f5"/>
+				<textFieldExpression><![CDATA[$F{maintain_wPeriod}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="399" y="66" width="82" height="20" uuid="a2183b2d-584b-465f-ba4c-ac5355bf41f3"/>
+				<text><![CDATA[Warranty Period :]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="202" width="550" height="1" uuid="f10558a2-832d-423f-935b-721f7b620f71"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="20">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="3d31bd72-bd0a-4468-8b18-7e806251d243"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="521b8aac-78b7-4859-aa56-053fd0fe54ed"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="e54baae0-2ea5-48eb-a4fb-02ee04406f70"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ebf73ec9-d3d5-4b9a-9d0f-30a78eeb4657">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT j.client, f.jobID, f.comment FROM feedback f, jobtac j WHERE MONTH(f.fbDate) = MONTH(CURRENT_DATE()) AND f.jobID=j.TACID]]>
+	</queryString>
+	<field name="client" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jobID" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="comment" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="group1">
+		<groupExpression><![CDATA[$F{client}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<textField isStretchWithOverflow="true">
+					<reportElement mode="Opaque" x="0" y="7" width="555" height="20" backcolor="#CCCCFF" uuid="d317fbcb-de3a-4d22-9fa0-9e8bb3a733c4"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{client}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="35"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="619388d0-6841-4ca0-855b-ba75cbb7d2f5"/>
+				<staticText>
+					<reportElement x="168" y="23" width="407" height="43" forecolor="#FFFFFF" uuid="10c010cd-e8d3-4611-9b91-a077e15a412a"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Feedback Report - ]]></text>
+				</staticText>
+				<image>
+					<reportElement x="20" y="20" width="90" height="46" uuid="6080bc2a-e5de-44dc-9ee8-16f853664c6d"/>
+					<imageExpression><![CDATA["C:\\Users\\MAX\\Documents\\NetBeansProjects\\TA Consultancies\\src\\Images\\Tac-White_1.png"]]></imageExpression>
+				</image>
+				<textField pattern="MMM">
+					<reportElement x="478" y="23" width="97" height="43" forecolor="#FFFFFF" uuid="a2f2b9f3-3f73-428b-b70f-884d142480de"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="12"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="00d13097-d18c-44c9-8da9-df625e10c89e"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="100" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="34168723-07d5-4deb-a2f6-bc62d3f05a94"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JobID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="100" y="0" width="455" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="549bef93-6e7a-430a-bfc9-45d612995652"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[     Feedback]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="0e872cf3-ae31-4bcb-9abf-a8785a51b7da"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="100" height="20" uuid="07491b9c-3533-46d2-9132-6efc0990a26e"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jobID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="100" y="0" width="455" height="20" uuid="d518f11e-b996-4bfd-b5be-ff551a3d7743"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comment}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="e9bbae12-a512-4ed1-8dab-7b3751ca3f7a"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="9da5eaf8-21fd-4b2b-891f-b45cc0db721b"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="6ba43e0e-4ec9-4e2d-818c-860d37ef0390"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="63b6d74e-e16f-4c29-80a8-1c80a6acc709">
+	<property name="ireport.zoom" value="1.3310000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT awardID, awardName, CandidateID, CandidateName FROM awards WHERE YEAR(asAtDate) =YEAR(CURDATE())]]>
+	</queryString>
+	<field name="awardID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="awardName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CandidateID" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="CandidateName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="awardGroup">
+		<groupExpression><![CDATA[$F{awardName}]]></groupExpression>
+		<groupHeader>
+			<band height="50">
+				<textField>
+					<reportElement mode="Opaque" x="0" y="11" width="555" height="20" backcolor="#CCCCFF" uuid="27268283-91de-42bc-bcba-feaacc4c6311"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{awardName}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="651b820c-11f6-47d7-8c0d-251f44a53f6e"/>
+				<staticText>
+					<reportElement x="207" y="33" width="338" height="43" forecolor="#FFFFFF" uuid="f695ee77-a7c3-4183-b2a0-9a361e4d8f8b"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Award Report]]></text>
+				</staticText>
+				<image>
+					<reportElement x="30" y="20" width="90" height="46" uuid="93db3e6e-bf88-4396-80a2-0557bac578a4"/>
+					<imageExpression><![CDATA["C:\\Users\\MAX\\Documents\\NetBeansProjects\\TA Consultancies\\src\\Images\\Tac-White_1.png"]]></imageExpression>
+				</image>
+				<textField pattern="yyyy">
+					<reportElement x="439" y="33" width="106" height="43" forecolor="#FFFFFF" uuid="ec85a888-133c-484c-960f-5a8e148a6477"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="31"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="32">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="6eeb76c4-49f6-44b9-8612-617976568f6c"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="133" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="35a3a9df-eec9-4b14-a596-7a42ea9b74fd"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AwardID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="133" y="0" width="164" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="8ac5a147-34ed-4d92-8afe-4b6efac0b50e"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CandidateID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="297" y="0" width="258" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6c71ba3e-9a84-476c-ba2a-17f96509b21f"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Candidate Name]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="2d8a7813-d40f-4e2e-956b-25d3817e59bb"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="133" height="20" uuid="c78505fe-c173-486f-8cda-e39b3447c11a"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{awardID}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="297" y="0" width="258" height="20" uuid="1e281552-3b0c-4ddd-90d4-dddfe1940c47"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CandidateName}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="133" y="0" width="164" height="20" uuid="c8b7ef9c-6834-49fe-b865-17b30e923bf5"/>
+				<textElement textAlignment="Center">
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{CandidateID}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="21">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="8e1a3b1c-7549-4de9-ac73-97b1f0baf918"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="207f63ea-e142-47ae-a841-9d9bdd6fc7d6"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="6dfa2f3d-f231-4bc5-bf95-e12d0ec8825a"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

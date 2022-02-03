@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="278b5e54-20da-44af-a265-e17cd87a6c0d">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     assets.`assetNo` AS assetNo,
+     assets.`vendName` AS vendName,
+     assets.`price` AS price,
+     assets.`purchDate` AS purchDate,
+     assets.`descript` AS descript,
+     assets.`model` AS model,
+     assets.`category` AS category,
+     assets.`location` AS location,
+     assets.`status` AS status
+FROM
+     `assets` assets
+ORDER BY category,assetNo
+]]>
+	</queryString>
+	<field name="assetNo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="vendName" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="price" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="purchDate" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descript" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="model" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="location" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="status" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<variable name="count" class="java.lang.Integer" resetType="Group" resetGroup="ctgry" calculation="Count">
+		<variableExpression><![CDATA[$F{assetNo}]]></variableExpression>
+	</variable>
+	<group name="ctgry">
+		<groupExpression><![CDATA[$F{category}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement x="0" y="0" width="100" height="30" uuid="d67dd53c-172c-4cd8-be3c-12b4d12118e8"/>
+					<textElement verticalAlignment="Middle">
+						<font size="14" isBold="true" isItalic="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{category}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<textField>
+					<reportElement x="531" y="0" width="24" height="20" uuid="12a07dd4-f69f-4286-a0bf-74f4b555628c"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{count}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="455" y="0" width="76" height="20" uuid="faeaf2f0-61ea-4399-819f-885cb40b0e26"/>
+					<textElement>
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[No.of Assets : ]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="07935976-6a65-44fa-9b28-5c2dc9c14d3c"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="74358d4a-e9ae-4104-96f5-4e9a157f657f"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TAC]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="395" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="bc8aaec8-b5a7-4f1f-a818-6aa63f821bff"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Assets category Report]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="7"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="24">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="747c8d95-4db0-454a-94a3-28856b17c04d"/>
+			</line>
+			<staticText>
+				<reportElement mode="Transparent" x="79" y="0" width="89" height="20" backcolor="#3399FF" uuid="a1acdaf5-4cdc-4fbf-992d-b68797e1d4ee"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Vendor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="168" y="0" width="88" height="20" backcolor="#3399FF" uuid="dd336a58-4db7-4c01-8f31-66fc08428afd"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Description]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="256" y="0" width="79" height="20" backcolor="#3399FF" uuid="2bd682b7-2682-4898-88a3-f88d64091848"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Purchase Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="335" y="0" width="71" height="20" backcolor="#3399FF" uuid="3a578eb0-d8bb-4765-8be3-b17e81af700b"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Price]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="406" y="0" width="79" height="20" backcolor="#3399FF" uuid="62bea74e-06d8-4390-9a31-3f307d9f4518"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Location]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="485" y="0" width="70" height="20" backcolor="#3399FF" uuid="422fcc5d-01db-4a2e-acf1-e998bebad89a"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="79" height="20" backcolor="#3399FF" uuid="2ddb46ae-91a9-4c68-a0f0-70111b1c5603"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asset No]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="28">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="a314b594-b533-4f36-beee-776e7b5d7182"/>
+			</line>
+			<textField>
+				<reportElement x="79" y="1" width="89" height="20" uuid="aaed3b26-cd30-494c-9341-8b2fe6e50779"/>
+				<textFieldExpression><![CDATA[$F{vendName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="0" width="88" height="20" uuid="e9e40c74-aa71-45b2-87de-49fb4144d1d2"/>
+				<textFieldExpression><![CDATA[$F{descript}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="256" y="0" width="79" height="20" uuid="d4bf0519-7e19-4469-9743-55aacf8eaf86"/>
+				<textFieldExpression><![CDATA[$F{purchDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="71" height="20" uuid="5ec4558f-ffa1-4d86-b8bd-14943e03682b"/>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="406" y="0" width="79" height="20" uuid="16c9057e-2448-464b-b5f1-7af3ffde2321"/>
+				<textFieldExpression><![CDATA[$F{location}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="0" width="68" height="20" uuid="fbc08138-ef61-416f-98db-c7c7574eb007"/>
+				<textFieldExpression><![CDATA[$F{status}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="79" height="20" uuid="cff6e2f2-591d-4cdb-ae6e-8183a225b221"/>
+				<textFieldExpression><![CDATA[$F{assetNo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="996562d2-8d21-4e01-9d7d-76f3558bdb5e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="dc9da304-3104-4f9e-859a-3d017d41db37"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="5bd37b86-d51e-47f5-bafe-828e6d1cf048"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
